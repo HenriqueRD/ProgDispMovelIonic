@@ -1,0 +1,28 @@
+#home .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+#home .card-info {
+    flex: 1;
+    margin-right: 16px;
+}
+#home .info {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+#home .infoPet {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#home .infoCat {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}

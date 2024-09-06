@@ -1,0 +1,9 @@
+#register .cat {
+    margin-top: 1rem;
+}
+#register .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}

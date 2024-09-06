@@ -1,0 +1,15 @@
+#pet .infoCat {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+#pet .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#pet .content p {
+    text-align: justify;
+}
+
