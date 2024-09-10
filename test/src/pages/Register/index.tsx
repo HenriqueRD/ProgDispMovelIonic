@@ -1,6 +1,7 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonTextarea, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonTextarea, IonThumbnail, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
 import './index.css';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 
 export default function Register() {
 
@@ -9,6 +10,18 @@ export default function Register() {
   const [ desc, setDesc ] = useState('')
   const [ genere, setGenere ] = useState('')
   const [ type, setType ] = useState('')
+
+  const [ present ] = useIonToast();
+  const history = useHistory();
+
+  function presentToast() {
+    present({
+      message: 'Pet cadastrado com sucesso!',
+      duration: 1500,
+      position: 'top',
+      mode: 'ios'
+    });
+  };
 
   function handleRegisterPet() {
     let pets = JSON.parse(localStorage.getItem('pets')) 
@@ -32,6 +45,10 @@ export default function Register() {
     }
     pets.push(pet)
     localStorage.setItem('pets', JSON.stringify(pets))
+    presentToast()
+    history.push('/pets')
+    location.reload() 
+
   }
 
   return (

@@ -29,7 +29,7 @@ const appPages: AppPage[] = [
     mdIcon: arrowUpOutline
   },
   {
-    title: 'Home',
+    title: 'Petz para doação',
     url: '/pets',
     iosIcon: homeOutline,
     mdIcon: homeOutline

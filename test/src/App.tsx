@@ -33,7 +33,7 @@ import '@ionic/react/css/palettes/dark.class.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Home from './pages/Home';
+import Home from './pages/Pets';
 import Pet from './pages/Pet';
 import Register from './pages/Register';
 import Login from './pages/Login';
