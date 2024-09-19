@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { arrowUpOutline, homeOutline, createOutline } from 'ionicons/icons';
+import { arrowUpOutline, homeOutline, createOutline, heart, heartOutline } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -29,10 +29,10 @@ const appPages: AppPage[] = [
     mdIcon: arrowUpOutline
   },
   {
-    title: 'Petz para doação',
+    title: 'Pets para adoção',
     url: '/pets',
-    iosIcon: homeOutline,
-    mdIcon: homeOutline
+    iosIcon: heartOutline,
+    mdIcon: heartOutline
   },
   {
     title: 'Cadastrar Pet',

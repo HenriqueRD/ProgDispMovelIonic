@@ -1,7 +1,28 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonTextarea, IonThumbnail, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
+import { 
+   IonButton,
+   IonButtons, 
+   IonCard, 
+   IonCardContent,
+   IonCardHeader, 
+   IonCardSubtitle, 
+   IonCardTitle, 
+   IonContent, 
+   IonHeader, 
+   IonInput, 
+   IonItem, 
+   IonMenuButton, 
+   IonPage, 
+   IonRadio, 
+   IonRadioGroup, 
+   IonTextarea, 
+   IonTitle, 
+   IonToolbar, 
+   useIonToast } from '@ionic/react';
 import './index.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { PetsProps } from '../Pets';
+import {v4 as uuid} from 'uuid'
 
 export default function Register() {
 
@@ -24,31 +45,36 @@ export default function Register() {
   };
 
   function handleRegisterPet() {
-    let pets = JSON.parse(localStorage.getItem('pets')) 
+    let pets: PetsProps[] = JSON.parse(localStorage.getItem('pets') ?? '[]') 
+
     if (!pets) {
-      const pet = [{
+      const pet: PetsProps[] = [{
         name,
         url,
         desc,
         genere,
-        type 
+        type,
+        id: uuid()
       }]
+      
       localStorage.setItem('pets', JSON.stringify(pet))
       return
     }
-    const pet = {
+
+    const pet: PetsProps = {
       name,
       url,
       desc,
       genere,
-      type 
+      type,
+      id: uuid()
     }
+
     pets.push(pet)
     localStorage.setItem('pets', JSON.stringify(pets))
     presentToast()
     history.push('/pets')
     location.reload() 
-
   }
 
   return (

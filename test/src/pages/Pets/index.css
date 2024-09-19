@@ -26,3 +26,13 @@
     align-items: center;
     gap: .5rem;
 }
+
+#home .list-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#home .pet-card {
+    display: flex;
+    width: 30%
+}
