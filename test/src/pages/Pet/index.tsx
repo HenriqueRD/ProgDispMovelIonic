@@ -47,8 +47,13 @@ export default function Pet() {
                 <IonCardHeader>
                   <IonCardTitle>{selectedPet.name}</IonCardTitle>
                   <div className='info'>
-                    <IonCardSubtitle color='secondary' mode='ios'>{selectedPet.type}</IonCardSubtitle>
-                    <IonCardSubtitle color='secondary' mode='ios'>{selectedPet.genere}</IonCardSubtitle>
+                    {
+                      selectedPet.cat.map(x => {
+                        return (
+                          <IonCardSubtitle key={x.name} color='secondary' mode='ios'>{x.name}</IonCardSubtitle>
+                        )
+                      })
+                    }
                   </div>
                 </IonCardHeader>
                 <IonCardContent className='content'>
@@ -57,8 +62,9 @@ export default function Pet() {
                     <p>{selectedPet.desc}</p>
                   </div>
                   <div>
-                    <strong>Informação do Dono:</strong>
-                    <p>[PRECISAMOS DECIDIR SE É UMA ONG OU ESTARÁ DISPONÍVEL PARA QUALQUER ONG. PARA ENTÃO OBTER ESSA INFORMAÇÃO AQUI SOBRE DONO]</p>
+                    <strong>Informação da Ong:</strong>
+                    <p>Avenida Alameda das Travessas, nº 111, Edifício Bosque do Cerrado, apartamento 2222 - Bairro dos Barris</p>
+                    <p>CEP: 40000-000. Lajeado - RS.</p>
                   </div>
                 </IonCardContent>
               </IonCard>

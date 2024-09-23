@@ -46,17 +46,15 @@ export default function Register() {
 
   function handleRegisterPet() {
     let pets: PetsProps[] = JSON.parse(localStorage.getItem('pets') ?? '[]') 
-
+      
     if (!pets) {
       const pet: PetsProps[] = [{
         name,
         url,
         desc,
-        genere,
-        type,
+        cat: [ {name: genere}, {name: type}],
         id: uuid()
       }]
-      
       localStorage.setItem('pets', JSON.stringify(pet))
       return
     }
@@ -65,11 +63,9 @@ export default function Register() {
       name,
       url,
       desc,
-      genere,
-      type,
+      cat: [ {name: genere}, {name: type}],
       id: uuid()
     }
-
     pets.push(pet)
     localStorage.setItem('pets', JSON.stringify(pets))
     presentToast()

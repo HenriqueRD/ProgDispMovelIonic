@@ -7,8 +7,7 @@ export interface PetsProps {
   name: string
   url: string
   desc: string
-  genere: string
-  type: string
+  cat: [{name: string}, {name: string}]
   id: string
 }
 
@@ -16,6 +15,7 @@ export default function Pets() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [pets, setPets] = useState<PetsProps[]>([])
+  const [petsFilter, setPetsFilter] = useState<PetsProps[]>([])
   const [filter, setFilter] = useState('')
 
   useEffect(() => {
@@ -23,17 +23,20 @@ export default function Pets() {
 
     if (petsStorage) {
       setPets(JSON.parse(petsStorage))
+      setPetsFilter(JSON.parse(petsStorage))
     }
   }, [])
-
+  
   function handleFilter() {
-    setIsOpen(false)
     if (filter === 'x') {
-      setPets(JSON.parse(localStorage.getItem('pets')) || [])
+      setPets(JSON.parse(localStorage.getItem('pets') ?? '[]'))
+      setIsOpen(false)
       return
     }
-    var newArray = pets.filter((x) => x.type !== filter)
-    setPets(newArray)
+    setPets(JSON.parse(localStorage.getItem('pets') ?? '[]'))
+    var newArray = pets.filter((x) => x.cat.some(x => x.name === filter))
+    setPetsFilter(newArray)
+    setIsOpen(false)
   }
 
   return (
@@ -95,10 +98,10 @@ export default function Pets() {
           </IonCardHeader>
           <IonCardContent>
             <IonList className='list-container' lines="full">
-              {pets.length == 0 ? <div>Ainda não há pets disponíveis para adoção. Volte em breve (:</div> :
-                pets.map(pet => {
+              {petsFilter.length == 0 ? <div>Ainda não há pets disponíveis para adoção. Volte em breve (:</div> :
+                petsFilter.map(pet => {
                   return (
-                    <IonItem key={pet.id} className='pet-card' button={true} href={`/pet/${pet.id}`}>
+                    <IonItem key={pet.id} button={true} href={`/pet/${pet.id}`}>
                       <IonThumbnail slot="start">
                         <img alt="Silhouette of mountains" src={`${pet.url}`} />
                       </IonThumbnail>
@@ -106,8 +109,13 @@ export default function Pets() {
                         <div className='infoPet'>
                           <IonCardTitle>{pet.name}</IonCardTitle>
                           <div className='infoCat'>
-                            <IonCardSubtitle color='secondary' mode='ios'>{pet.type}</IonCardSubtitle>
-                            <IonCardSubtitle color='secondary' mode='ios'>{pet.genere}</IonCardSubtitle>
+                            {
+                              pet.cat.map(x => {
+                                return (
+                                  <IonCardSubtitle key={x.name} color='secondary' mode='ios'>{x.name}</IonCardSubtitle>
+                                )
+                              })
+                            }
                           </div>
                         </div>
                         <IonButton>
