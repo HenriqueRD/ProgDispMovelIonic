@@ -2,7 +2,7 @@ import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardS
 import './index.css';
 
 export default function Start() {
-
+  
   return (
     <IonPage >
       <IonHeader>
@@ -25,7 +25,6 @@ export default function Start() {
               <p>App sem fins lucrativo apenas fazemos o network</p>
               <div className="buttons">
                 <IonButton href='/pets'>Adotar</IonButton>
-                <IonButton href='/login'>Doar</IonButton>
               </div>
             </IonCardContent>
           </IonCard>

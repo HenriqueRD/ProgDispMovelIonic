@@ -37,6 +37,7 @@ import Pets from './pages/Pets';
 import Pet from './pages/Pet';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import ManagePets from './pages/ManagePets';
 
 setupIonicReact();
 
@@ -59,7 +60,10 @@ const App: React.FC = () => {
             <Route path="/registerPet">
               <Register />
             </Route>
-            <Route path="/login">
+            <Route path="/managePets">
+              <ManagePets />
+            </Route>
+            <Route path="/login/:id">
               <Login />
             </Route>
             <Route path="/pet/:id">

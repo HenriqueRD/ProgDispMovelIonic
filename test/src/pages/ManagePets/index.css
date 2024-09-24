@@ -1,0 +1,38 @@
+#managePets .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+#managePets .card-info {
+    flex: 1;
+    margin-right: 16px;
+}
+#managePets .info {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+#managePets .infoPet {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#managePets .infoPet strong {
+    
+    color: dimgrey;
+}
+#managePets .infoCat {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+#managePets .infoPetNameButtons {
+   align-items: center;
+    display: flex;
+    justify-content: space-between;
+ }

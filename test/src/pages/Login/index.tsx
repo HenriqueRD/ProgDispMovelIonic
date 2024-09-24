@@ -1,7 +1,16 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './index.css';
+import { useHistory, useParams } from 'react-router';
 
 export default function Login() {
+  
+  const { id  } = useParams<{ id: string }>()
+  const history = useHistory()
+
+  function handleLogin() {
+    if (parseInt(id) === 1) { history.push("/managePets") }
+    else if (parseInt(id) === 2) { history.push("/registerPet") }
+  }
 
   return (
     <IonPage >
@@ -27,7 +36,7 @@ export default function Login() {
                 <IonInput label="Senha" labelPlacement="stacked" placeholder="Digite sua senha"></IonInput>
               </IonItem>
               <div className='content'>
-                <IonButton href='/registerPet'>ENTRAR</IonButton>
+                <IonButton onClick={handleLogin}>ENTRAR</IonButton>
               </div>
             </IonCardContent>
           </IonCard>

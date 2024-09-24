@@ -69,7 +69,7 @@ export default function Register() {
     pets.push(pet)
     localStorage.setItem('pets', JSON.stringify(pets))
     presentToast()
-    history.push('/pets')
+    history.push('/managePets')
     location.reload() 
   }
 

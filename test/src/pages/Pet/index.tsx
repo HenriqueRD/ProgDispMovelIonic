@@ -16,7 +16,6 @@ export default function Pet() {
 
       setSelectedPet(pets.find((item: PetsProps) => item.id === extractIdFromUrl()))
     }
-
   }, [])
 
   function extractIdFromUrl() {
